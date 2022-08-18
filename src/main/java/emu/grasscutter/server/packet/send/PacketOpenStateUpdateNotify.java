@@ -24,12 +24,12 @@ public class PacketOpenStateUpdateNotify extends BasePacket {
             if (player.getOpenStates().containsKey(state.getId())) {
                 proto.putOpenStateMap(state.getId(), player.getProgressManager().getOpenState(state.getId()));
             }
-            // Otherwise, add the state if it is contained in the set of default open states. 
+            // Otherwise, add the state if it is contained in the set of default open states.
             else if (PlayerProgressManager.DEFAULT_OPEN_STATES.contains(state.getId())) {
                 proto.putOpenStateMap(state.getId(), 1);
             }
         }
-        
+
         this.setData(proto);
     }
 }
